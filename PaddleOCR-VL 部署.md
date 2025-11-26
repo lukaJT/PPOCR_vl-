@@ -2,7 +2,6 @@
 
 
 
-![{"image\_type":"search","type":"load\_by\_key","key":"banner\_image\_0"}]()
 
 ## 项目概述
 
@@ -30,15 +29,15 @@
 
 
 ```
-\# 1. 安装虚拟环境工具
+ 1. 安装虚拟环境工具
 
 sudo apt-get install -y python3-venv
 
-\# 2. 创建虚拟环境（路径自定义）
+# 2. 创建虚拟环境（路径自定义）
 
 python3 -m venv /back/aiengine/paddleocr/paddleocr\_gpu\_new
 
-\# 3. 激活
+# 3. 激活
 
 source /back/aiengine/paddleocr/paddleocr\_gpu\_new/bin/activate
 ```
