@@ -29,15 +29,15 @@
 
 
 ```
- 1. 安装虚拟环境工具
+1. 安装虚拟环境工具
 
 sudo apt-get install -y python3-venv
 
-# 2. 创建虚拟环境（路径自定义）
+2. 创建虚拟环境（路径自定义）
 
 python3 -m venv /back/aiengine/paddleocr/paddleocr\_gpu\_new
 
-# 3. 激活
+3. 激活
 
 source /back/aiengine/paddleocr/paddleocr\_gpu\_new/bin/activate
 ```
@@ -53,11 +53,11 @@ source /back/aiengine/paddleocr/paddleocr\_gpu\_new/bin/activate
 
 
 ```
-\# 1. 更新系统源
+1. 更新系统源
 
 sudo apt-get update
 
-\# 2. 安装编译工具+Python开发文件
+2. 安装编译工具+Python开发文件
 
 sudo apt-get install -y build-essential python3.10-dev
 ```
@@ -87,7 +87,7 @@ python3 -m pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 
 ```
-\# 适配Python3.10、cv2、PaddlePaddle，避开2.x系列ABI冲突
+适配Python3.10、cv2、PaddlePaddle，避开2.x系列ABI冲突
 
 python3 -m pip install numpy==1.26.4 --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
@@ -97,7 +97,7 @@ python3 -m pip install numpy==1.26.4 --no-cache-dir -i https://pypi.tuna.tsinghu
 
 
 ```
-\# 适配CUDA12.4，配对PaddleOCR3.0
+适配CUDA12.4，配对PaddleOCR3.0
 
 python3 -m pip install paddlepaddle-gpu==3.2.1 \
   -i https://www.paddlepaddle.org.cn/packages/stable/cu126/
@@ -118,7 +118,7 @@ python3 -c "import paddle; paddle.utils.run_check()"
 
 
 ```
-\# [doc-parser] 额外依赖包含文档解析和VL模型支持
+[doc-parser] 额外依赖包含文档解析和VL模型支持
 python3 -m pip install -U "paddleocr[doc-parser]" \
   --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple
 
@@ -129,7 +129,7 @@ python3 -m pip install -U "paddleocr[doc-parser]" \
 
 
 ```
-\# Linux x86_64 专用版本
+Linux x86_64 专用版本
 python3 -m pip install https://paddle-whl.bj.bcebos.com/nightly/cu126/safetensors/safetensors-0.6.2.dev0-cp38-abi3-linux_x86_64.whl
 ```
 
