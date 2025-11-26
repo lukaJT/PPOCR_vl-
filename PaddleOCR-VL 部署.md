@@ -87,7 +87,7 @@ python3 -m pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 
 ```
-适配Python3.10、cv2、PaddlePaddle，避开2.x系列ABI冲突
+#适配Python3.10、cv2、PaddlePaddle，避开2.x系列ABI冲突
 
 python3 -m pip install numpy==1.26.4 --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
@@ -97,7 +97,7 @@ python3 -m pip install numpy==1.26.4 --no-cache-dir -i https://pypi.tuna.tsinghu
 
 
 ```
-适配CUDA12.4，配对PaddleOCR3.0
+#适配CUDA12.4，配对PaddleOCR3.0
 
 python3 -m pip install paddlepaddle-gpu==3.2.1 \
   -i https://www.paddlepaddle.org.cn/packages/stable/cu126/
@@ -118,7 +118,7 @@ python3 -c "import paddle; paddle.utils.run_check()"
 
 
 ```
-[doc-parser] 额外依赖包含文档解析和VL模型支持
+#[doc-parser] 额外依赖包含文档解析和VL模型支持
 python3 -m pip install -U "paddleocr[doc-parser]" \
   --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple
 
@@ -129,7 +129,7 @@ python3 -m pip install -U "paddleocr[doc-parser]" \
 
 
 ```
-Linux x86_64 专用版本
+#Linux x86_64 专用版本
 python3 -m pip install https://paddle-whl.bj.bcebos.com/nightly/cu126/safetensors/safetensors-0.6.2.dev0-cp38-abi3-linux_x86_64.whl
 ```
 
@@ -138,7 +138,7 @@ python3 -m pip install https://paddle-whl.bj.bcebos.com/nightly/cu126/safetensor
 
 
 ```
-\# 图像处理+工具类，版本适配numpy1.26.4
+# 图像处理+工具类，版本适配numpy1.26.4
 
 python3 -m pip install opencv-python==4.8.0.76 pillow requests --no-cache-dir -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
@@ -156,61 +156,61 @@ from paddleocr import PaddleOCRVL
 
 import os
 
-\# 初始化VL功能
+# 初始化VL功能
 
 ocr = PaddleOCRVL(
 
-&#x20;   device="gpu:0",        # 启用GPU加速
+   device="gpu:0",        # 启用GPU加速
 
-&#x20;   enable\_hpi=False,      # 高性能推理（如开启需另下插件，本身已经很快了）
+   enable_hpi=False,      # 高性能推理（如开启需另下插件，本身已经很快了）
 
-&#x20;   precision="fp16",           # 半精度加速（这里只是为了快速出个结果）
+   precision="fp16",           # 半精度加速（这里只是为了快速出个结果）
 
-&#x20;   use\_layout\_detection=True,          # 启用版面分析
+   use_layout_detection=True,          # 启用版面分析
 
-&#x20;    use\_doc\_orientation\_classify=True,  # 文档方向分类
+   use_doc_orientation_classify=True,  # 文档方向分类
 
-&#x20;    use\_doc\_unwarping=True,            # 文档去畸变
+    use_doc_unwarping=True,            # 文档去畸变
 
 )
 
-\# 测试图片
+# 测试图片
 
-img\_path = "/your/path/to/input/(/back/aiengine/paddleocr/pic1.jpg)"
+img_path = "/your/path/to/input/(/back/aiengine/paddleocr/pic1.jpg)"
 
-\# check文件
+# check文件
 
-if not os.path.exists(img\_path):
+if not os.path.exists(img_path):
 
-&#x20;   print(f"错误：图片不存在 → {img\_path}")
+   print(f"错误：图片不存在 → {img_path}")
 
 else:
 
-&#x20;   try:
+   try:
 
-&#x20;       output = ocr.predict(img\_path)   # 执行识别（3.x使用predict方法）
+       output = ocr.predict(img_path)   # 执行识别（3.x使用predict方法）
 
-&#x20;       for res in output:
+      for res in output:
 
-&#x20;           res.print()                 #打印结构化结果
+           res.print()                 #打印结构化结果
 
-&#x20;       ressavr\_to\_json(save_path="/back/aiengine/paddleocr/output")    #save json文档（内含检测框和内容）
+      ressavr_to_json(save_path="/back/aiengine/paddleocr/output")    #save json文档（内含检测框和内容）
 
-&#x20;       res.save\_to_markdown(
+      res.save_to_markdown(
             
-&#x20;       save\_path="/back/aiengine/paddleocr/output",
+       save_path="/back/aiengine/paddleocr/output",
 
-&#x20;       pretty=True #美化
+       pretty=True #美化
 
-&#x20;       )
+       )
 
-&#x20;       res.save\_to\_img(save_path="/your/path/to/output(/back/aiengine/paddleocr/output)")
+      res.save_to_img(save_path="/your/path/to/output(/back/aiengine/paddleocr/output)")
 
-&#x20;       print("处理完成！结果已保存到/your/path/to/output(/back/aiengine/paddleocr/output)")
+       print("处理完成！结果已保存到/your/path/to/output(/back/aiengine/paddleocr/output)")
 
-&#x20;       except Exception as e:
+      except Exception as e:
 
-&#x20;       print(f"发生错误:{str(e)}")
+       print(f"发生错误:{str(e)}")
 
 ```
 
@@ -227,11 +227,11 @@ else:
 
 
 ```
-\# 确保虚拟环境已激活，进入脚本目录
+# 确保虚拟环境已激活，进入脚本目录
 
 cd /back/aiengine/paddleocr
 
-\# 运行脚本
+# 运行脚本
 
 python3 PaddleOCRVL.py
 ```
@@ -273,12 +273,12 @@ python3 PaddleOCRVL.py
 
 5. **大批量处理优化**：对于大批量的图片处理，可根据需求调整参数，更多可调节功能详见官方文档：
 ```
- &#x20;  ocr = PaddleOCRVL(
- &#x20;    device="gpu:0",
- &#x20;    enable_hpi=False,
- &#x20;    precision="fp16",           # 半精度，显存占用减半
- &#x20;    cpu_threads=16,             # CPU 线程数（根据服务器核心数调整）
- &#x20;    enable_mkldnn=True,         # 启用 MKL-DNN CPU 加速
- &#x20;    # use_queues=True,          # 启用异步队列（处理大量图片时加速）
-&#x20;     )
+  ocr = PaddleOCRVL(
+    device="gpu:0",
+    enable_hpi=False,
+    precision="fp16",           # 半精度，显存占用减半
+   cpu_threads=16,             # CPU 线程数（根据服务器核心数调整）
+    enable_mkldnn=True,         # 启用 MKL-DNN CPU 加速
+   # use_queues=True,          # 启用异步队列（处理大量图片时加速）
+    )
 ```
